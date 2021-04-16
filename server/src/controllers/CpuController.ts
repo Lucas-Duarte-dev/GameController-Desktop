@@ -23,7 +23,7 @@ class CpuController {
       memory: totalMemory,
       usage_memory,
       use_percent,
-      model,
+      CPU: model,
     });
   }
 }

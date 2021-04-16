@@ -1,14 +1,21 @@
-const { app, BrowserWindow } = require("electron");
-const path = require("path");
+import { app, BrowserWindow } from "electron";
+import isDev from "electron-is-dev";
 
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     darkTheme: true,
+    webPreferences: {
+      nodeIntegration: true,
+    },
   });
 
-  win.loadFile(path.join(__dirname, "pages", "index.html"));
+  console.log(isDev);
+
+  win.loadURL(
+    isDev ? "http://localhost:9000" : `file://${app.getAppPath()}/index.html`
+  );
 };
 
 app.whenReady().then(() => {
