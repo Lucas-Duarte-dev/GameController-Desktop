@@ -3,6 +3,6 @@ import CpuController from "./controllers/CpuController";
 
 const route = Router();
 
-route.get("/", CpuController.ram);
+route.get("/ram", CpuController.ram);
 
 export default route;
